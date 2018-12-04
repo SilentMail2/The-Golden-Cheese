@@ -18,8 +18,10 @@ public class HealthStuff : MonoBehaviour {
 	void OnTriggerEnter (Collider other){
 		if (other.gameObject.tag == "Player") {
 			playerControl = other.gameObject.GetComponent<PlayerControl> ();
-			playerControl.GiveHp (HPamount);
-			Destroy (this.gameObject);
+			if (HPamount>0 && playerControl.hp < 3) {
+				playerControl.GiveHp (HPamount);
+				Destroy (this.gameObject);
+			}
 		}
 	}
 }

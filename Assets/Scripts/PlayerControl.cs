@@ -8,8 +8,8 @@ public class PlayerControl : MonoBehaviour {
 	[SerializeField] private string vertical;
 	[SerializeField] private string horizontal;
 	[SerializeField] private float grav;
-
-	[SerializeField] private int hp;
+	public LevelControl lc;
+	public int hp;
 	[SerializeField] private GameObject[] h;
 	public GameObject lever;
 
@@ -104,6 +104,13 @@ public class PlayerControl : MonoBehaviour {
 			if (Input.GetKeyDown (activate)) {
 				leverControl.PullLever ();
 			}
+		}
+		if (other.gameObject.tag == "Trap") {
+			GiveHp (-4);
+		}
+		if (other.gameObject.tag == "Wealth") {
+			Destroy (other.gameObject);
+			lc.collectedCheese++;
 		}
 	}
 	void OnTriggerExit(Collider other)

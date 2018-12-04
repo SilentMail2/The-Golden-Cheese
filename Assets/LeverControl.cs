@@ -17,10 +17,10 @@ public class LeverControl : MonoBehaviour {
 	void Update ()
 	{
 		if (!isPulled) {
-			lever.transform.localPosition = new Vector3 (0.25f, 0.32f, 0);
+			lever.transform.localPosition = new Vector3 (-6.618f, 0.773f, -4.805f);
 		}
-		if (isPulled) {
-			lever.transform.localPosition = new Vector3 (-0.08f, 0.32f, 0);
+		else if (isPulled) {
+			lever.transform.localPosition = new Vector3 (-6.618f, -0.16f, -4.805f);
 		}
 	}
 	public void PullLever ()
@@ -28,7 +28,7 @@ public class LeverControl : MonoBehaviour {
 		if (!isPulled) {
 			isPulled = true;
 		}
-		if (isPulled) {
+		else if (isPulled) {
 			isPulled = false;
 		}
 		activateControl.DoaThing ();

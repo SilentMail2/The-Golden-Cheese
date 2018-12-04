@@ -14,6 +14,6 @@ public class LevelControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		collectedCheeseText.text = collectedCheese.ToString ();
 	}
 }
