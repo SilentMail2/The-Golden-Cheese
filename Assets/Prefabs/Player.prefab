@@ -155,7 +155,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d0f108c63ec3ac04498b12f7e13b629a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -205,17 +205,22 @@ MonoBehaviour:
   vertical: Horizontal
   horizontal: Vertical
   grav: 900
-  hp: 0
+  lc: {fileID: 0}
+  hp: 3
   h:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  lever: {fileID: 0}
   cc: {fileID: 143608226686947190}
   isHiding: 0
   hasCheese: 0
   pickUpEnabled: 0
   CheeseStone: {fileID: 0}
+  DesmTrigger: {fileID: 0}
   cheesyStone: {fileID: 0}
+  WinScreen: {fileID: 0}
+  DeathScreen: {fileID: 0}
 --- !u!124 &124519285603389854
 Behaviour:
   m_ObjectHideFlags: 1

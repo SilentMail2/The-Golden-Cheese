@@ -19,8 +19,19 @@ public class PlayerControl : MonoBehaviour {
 	public bool hasCheese;
 	public bool pickUpEnabled;
 	public GameObject CheeseStone;
+	public GameObject DesmTrigger;
+	Activatable activation;
 	public CheeseStone cheesyStone;
 	LeverControl leverControl;
+
+	public GameObject WinScreen;
+	public GameObject DeathScreen;
+
+
+
+	//Barrel stuff
+	public GameObject Barrel;
+	public BarrelScript barrelStuff;
 	// Use this for initialization
 	void Start () {
 		
@@ -36,6 +47,13 @@ public class PlayerControl : MonoBehaviour {
 			DropOff(CheeseStone);
 		}
 		CheckHP ();
+		if (Input.GetKeyUp (activate)) {
+			Debug.Log ("Getoutofbarrel1");
+			barrelStuff.isActivated = false;
+			Debug.Log ("Getoutofbarrel2");
+			isHiding = false;
+			Debug.Log ("Getoutofbarrel3");
+		}
 	}
 	public void CheckHP(){
 		if (hp < 3) {
@@ -55,6 +73,10 @@ public class PlayerControl : MonoBehaviour {
 		}
 		if (hp >= 1) {
 			h [0].SetActive (true);
+		}
+		if (hp <= 0) {
+			DeathScreen.SetActive (true);
+			Time.timeScale = 0;
 		}
 
 	}
@@ -76,11 +98,16 @@ public class PlayerControl : MonoBehaviour {
 
 	public void PickUp (GameObject newParent)
 	{
-		if (Input.GetKey (activate) && cheesyStone.PickedUpable) {
+		if (Input.GetKeyDown (activate) && cheesyStone.PickedUpable) {
 			newParent.transform.parent = this.transform;
 			hasCheese = true;
 
 		}
+		if (Input.GetKeyDown (activate) && barrelStuff.PickedUpable) {
+			barrelStuff.isActivated = true;
+			isHiding = true;		
+		}
+
 	}
 
 	public void DropOff (GameObject newParent)
@@ -88,7 +115,12 @@ public class PlayerControl : MonoBehaviour {
 		if (Input.GetKeyUp (activate)) {
 			newParent.transform.parent = null;
 			hasCheese = false;
+
 		}
+/*		if (Input.GetKeyUp (activate)) {
+
+		}
+*/
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -96,6 +128,11 @@ public class PlayerControl : MonoBehaviour {
 		if (other.gameObject.tag == "FullofCheese" && !hasCheese) {
 			CheeseStone = other.gameObject;
 			cheesyStone = CheeseStone.GetComponent<CheeseStone> ();
+			pickUpEnabled = true;
+		}
+		if (other.gameObject.tag == "Barrel" && !isHiding) {
+			Barrel = other.gameObject;
+			barrelStuff = Barrel.GetComponent<BarrelScript> ();
 			pickUpEnabled = true;
 		}
 		if (other.gameObject.tag == "Lever") {
@@ -111,6 +148,20 @@ public class PlayerControl : MonoBehaviour {
 		if (other.gameObject.tag == "Wealth") {
 			Destroy (other.gameObject);
 			lc.collectedCheese++;
+		}
+		if (other.gameObject.tag == "Spear") {
+			other.gameObject.SetActive (false);
+			GiveHp (-1);
+		}
+		if (other.gameObject.tag == "Desm") {
+			DesmTrigger = other.gameObject;
+			activation = DesmTrigger.GetComponent<Activatable> ();
+			if (!isHiding) {
+				activation.DoaThing ();
+			}
+		}
+		if (other.gameObject.tag == "BigCheese") {
+			WinScreen.SetActive (true);
 		}
 	}
 	void OnTriggerExit(Collider other)

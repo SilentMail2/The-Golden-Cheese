@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 4156486563748416}
   - component: {fileID: 33769312124865852}
   - component: {fileID: 23726294083049602}
+  - component: {fileID: 65127585779218446}
+  - component: {fileID: 65756762864274700}
+  - component: {fileID: 65427577559038778}
   m_Layer: 0
   m_Name: Hall
   m_TagString: Untagged
@@ -35,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1222966531761522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -44.763905, y: 32.826797, z: -28.752832}
+  m_LocalPosition: {x: -4.2400503, y: 11.849327, z: -36.44219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,3 +86,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1222966531761522}
   m_Mesh: {fileID: 4300000, guid: e9f688591d303af479b711d5414f302c, type: 3}
+--- !u!65 &65127585779218446
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1222966531761522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.833331, y: 0.10910082, z: 10.873965}
+  m_Center: {x: -4.9166656, y: 0.054549932, z: -5.4369826}
+--- !u!65 &65427577559038778
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1222966531761522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.833331, y: 5.0000005, z: 0.77017593}
+  m_Center: {x: -4.9166656, y: 2.4999998, z: -10.49}
+--- !u!65 &65756762864274700
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1222966531761522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.833331, y: 5.0000005, z: 0.77017593}
+  m_Center: {x: -4.9166656, y: 2.4999998, z: -0.38508797}

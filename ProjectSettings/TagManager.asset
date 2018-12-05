@@ -9,6 +9,10 @@ TagManager:
   - Lever
   - Trap
   - Wealth
+  - BigCheese
+  - Desm
+  - Spear
+  - Barrel
   layers:
   - Default
   - TransparentFX
